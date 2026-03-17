@@ -1,10 +1,71 @@
 Task 8: Create a simple Employee Management module using Spring Core. Demonstrate Inversion of Control and Dependency Injection using annotations such as @Component and @Autowired. Use BeanFactory to manage beans and store employee data in memory.
-Create a spring framework by the using the maven project :
-1.File-> new-> maven project
-2.Use the quickstart and give the artifact id as employee and finish
-3.give the group id as employee management
-4.go to pom.xml and the spring dependency and add the spring context dependency from maven repository of version 5.3.8(Copy and paste)
-5.Create a class employee in the package model and wirte the variable and generate constructors using fields and the toString from source
+# 📘 Task 8: Employee Management Module using Spring Core
+
+## 🎯 Objective
+
+To develop a simple Employee Management module using **Spring Core**, demonstrating:
+
+* Inversion of Control (IoC)
+* Dependency Injection (DI)
+* Annotation-based configuration (`@Component`, `@Autowired`)
+* Bean management using `BeanFactory`
+* In-memory data storage
+
+---
+
+## 🛠️ Project Setup (Maven)
+
+1. Go to **File → New → Maven Project**
+2. Select **Quickstart Archetype**
+3. Enter:
+
+   * **Group ID**: `com.example`
+   * **Artifact ID**: `employee`
+4. Click **Finish**
+
+---
+
+## 📦 Add Dependency (pom.xml)
+
+Add the following Spring Core dependency:
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.3.8</version>
+</dependency>
+```
+
+---
+
+## 📁 Project Structure
+
+```
+src/main/java/com/example
+│
+├── model
+│   └── Employee.java
+│
+├── repository
+│   └── EmployeeRepository.java
+│
+├── service
+│   └── EmployeeService.java
+│
+├── config
+│   └── AppConfig.java
+│
+└── App.java
+```
+
+---
+
+## 👨‍💻 Implementation
+
+### 🔹 1. Employee Class (Model)
+
+```java
 package com.example.model;
 
 public class Employee {
@@ -23,17 +84,19 @@ public class Employee {
         return "Employee [id=" + id + ", name=" + name + ", dept=" + dept + "]";
     }
 }
+```
 
+---
 
-6.Create a another class named Employeerepository in the package com.example.employeerepository
-Create a list for the employees:;
+### 🔹 2. EmployeeRepository
+
+```java
 package com.example.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-
 import com.example.model.Employee;
 
 @Component
@@ -49,9 +112,13 @@ public class EmployeeRepository {
         return employeeList;
     }
 }
+```
 
+---
 
-7.Create a new class named employeeService to create the employee in the com.example.service package
+### 🔹 3. EmployeeService
+
+```java
 package com.example.service;
 
 import java.util.List;
@@ -77,9 +144,13 @@ public class EmployeeService {
         return employeeRepository.getAllEmployees();
     }
 }
+```
 
+---
 
-8. create a Configuration class named AppConfig inside a com.example.model.config
+### 🔹 4. Configuration Class
+
+```java
 package com.example.config;
 
 import org.springframework.context.annotation.ComponentScan;
@@ -89,9 +160,13 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "com.example")
 public class AppConfig {
 }
+```
 
+---
 
-9.in the main class App.java:
+### 🔹 5. Main Class (BeanFactory)
+
+```java
 package com.example;
 
 import org.springframework.beans.factory.BeanFactory;
@@ -114,10 +189,60 @@ public class App {
         service.fetchAllEmployees().forEach(System.out::println);
     }
 }
+```
 
+---
 
-10.Run the App.java as an Java Application to get the output like 
- 
+## ▶️ How to Run
+
+1. Right-click on `App.java`
+2. Select **Run as → Java Application**
+
+---
+
+## ✅ Expected Output
+
+```
+Employee [id=101, name=Raha, dept=CSE]
+Employee [id=102, name=Kiran, dept=ECE]
+Employee [id=103, name=Arun, dept=IT]
+```
+
+---
+
+## 🔍 Concepts Demonstrated
+
+### ✔ Inversion of Control (IoC)
+
+* Object creation is handled by Spring container.
+
+### ✔ Dependency Injection (DI)
+
+* `@Autowired` injects `EmployeeRepository` into `EmployeeService`.
+
+### ✔ Annotations Used
+
+* `@Component` → Marks classes as Spring beans
+* `@Autowired` → Injects dependencies
+* `@Configuration` → Configuration class
+* `@ComponentScan` → Scans packages
+
+### ✔ BeanFactory
+
+* Used to load and manage Spring beans:
+
+```java
+BeanFactory factory = new AnnotationConfigApplicationContext(AppConfig.class);
+```
+
+---
+
+## 📌 Conclusion
+
+This project successfully demonstrates a basic **Spring Core application** using annotation-based configuration. It shows how Spring manages objects and dependencies efficiently using IoC and DI principles, without using XML configuration.
+
+---
+
 
 
 
