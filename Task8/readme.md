@@ -23,6 +23,8 @@ public class Employee {
         return "Employee [id=" + id + ", name=" + name + ", dept=" + dept + "]";
     }
 }
+
+
 6.Create a another class named Employeerepository in the package com.example.employeerepository
 Create a list for the employees:;
 package com.example.repository;
@@ -47,6 +49,8 @@ public class EmployeeRepository {
         return employeeList;
     }
 }
+
+
 7.Create a new class named employeeService to create the employee in the com.example.service package
 package com.example.service;
 
@@ -73,6 +77,8 @@ public class EmployeeService {
         return employeeRepository.getAllEmployees();
     }
 }
+
+
 8. create a Configuration class named AppConfig inside a com.example.model.config
 package com.example.config;
 
@@ -83,6 +89,8 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "com.example")
 public class AppConfig {
 }
+
+
 9.in the main class App.java:
 package com.example;
 
@@ -106,6 +114,8 @@ public class App {
         service.fetchAllEmployees().forEach(System.out::println);
     }
 }
+
+
 10.Run the App.java as an Java Application to get the output like 
  
 
