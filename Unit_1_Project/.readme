@@ -1,0 +1,178 @@
+# 🎟 Eventbux – Event Management System
+
+## 📌 Project Overview
+
+Eventbux is a full-stack web application designed to simplify event management and ticket booking. It provides a centralized platform where users can create, explore, and book events, while administrators can manage and control all activities efficiently.
+
+---
+
+## 🚀 Features
+
+### 👤 User Features
+
+* User Registration and Login
+* Browse all available events
+* Create and manage personal events
+* Book events
+* View "My Events" dashboard
+
+### 🛠 Admin Features
+
+* Admin Login
+* View all events
+* Delete/manage events
+* Monitor platform activity
+
+### 🎟 Event Features
+
+* Add new events (title, location, date, price)
+* Dynamic event listing
+* Event booking system
+
+---
+
+## 🏗 Tech Stack
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MySQL (MySQL Workbench)
+
+---
+
+## 📂 Project Structure
+
+```
+eventbux/
+│
+├── public/
+│   ├── home.html
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   ├── add-event.html
+│   ├── admin-login.html
+│   ├── admin-dashboard.html
+│   ├── style.css
+│   └── script.js
+│
+├── server.js
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```
+git clone <your-repo-link>
+cd eventbux
+```
+
+### 2️⃣ Install dependencies
+
+```
+npm install
+```
+
+### 3️⃣ Setup MySQL Database
+
+Create database:
+
+```
+CREATE DATABASE campus_events;
+```
+
+Create tables:
+
+```
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  password VARCHAR(100)
+);
+
+CREATE TABLE events (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(100),
+  location VARCHAR(100),
+  date DATE,
+  price INT,
+  user_id INT
+);
+
+CREATE TABLE bookings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  event_id INT
+);
+```
+
+### 4️⃣ Configure Database in `server.js`
+
+Update:
+
+```
+password: "yourpassword"
+```
+
+---
+
+### 5️⃣ Run the server
+
+```
+node server.js
+```
+
+---
+
+### 6️⃣ Open in Browser
+
+```
+http://localhost:3000/home.html
+```
+
+---
+
+## 🔄 How It Works
+
+1. User registers or logs in
+2. Frontend sends API requests using Fetch
+3. Backend processes requests via Express
+4. MySQL stores and retrieves data
+5. Data is displayed dynamically on UI
+
+---
+
+## 🔐 Key Functionalities
+
+* Authentication system (User & Admin)
+* Role-based navigation
+* CRUD operations on events
+* Booking system
+* Dynamic UI updates
+
+---
+
+## 📸 Screens
+
+* Home Page → Displays all events
+* Login/Register → User authentication
+* Dashboard → User events
+* Admin Dashboard → Full control
+
+
